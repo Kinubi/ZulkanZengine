@@ -406,13 +406,13 @@ pub const App = struct {
 
         compute_shader_system.beginCompute(frame_info);
         // Each compute system will dispatch its own compute shader
-        particle_renderer.dispatch();
-        compute_shader_system.dispatch(
-            &particle_renderer.compute_pipeline,
-            &struct { descriptor_set: vk.DescriptorSet }{ .descriptor_set = particle_renderer.descriptor_set },
-            frame_info,
-            .{ @intCast(particle_renderer.num_particles / 256), 1, 1 },
-        );
+        // particle_renderer.dispatch();
+        // compute_shader_system.dispatch(
+        //     &particle_renderer.compute_pipeline,
+        //     &struct { descriptor_set: vk.DescriptorSet }{ .descriptor_set = particle_renderer.descriptor_set },
+        //     frame_info,
+        //     .{ @intCast(particle_renderer.num_particles / 256), 1, 1 },
+        // );
         compute_shader_system.endCompute(frame_info);
 
         //log(.TRACE, "app", "Frame start", .{});
